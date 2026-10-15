@@ -1,6 +1,40 @@
 # ShopKart
+A full-stack e-commerce web application built using the MERN stack as part of the Engineering Labs at Scaler School of Technology. ShopKart provides a complete shopping experience, from browsing products and managing a wishlist to adding items to a cart, completing checkout with Razorpay Test Mode, and viewing order history.
 
-A full-stack e-commerce app: product catalog with search and categories, wishlist, cart, checkout with Razorpay (Test Mode) and order history.
+## Features
+###  Authentication
+- Customer registration and login
+- JWT-based authentication using HttpOnly cookies
+- Protected API routes
+- Logout functionality
+### Product Catalogue
+- Browse products fetched from MongoDB
+- Product details pages
+- Product search and category filtering
+- Product stock information
+- Cloudinary-hosted product images
+### Wishlist
+- Add and remove products from a wishlist
+- Persistent, customer-specific wishlist
+- Wishlist data populated with product information
+### Shopping Cart
+- Add products to the cart
+- Increase and decrease product quantities
+- Remove products from the cart
+- Stock validation
+- Persistent cart stored in MongoDB
+- Shared cart state using React Context API
+- Dynamically calculated subtotal and navbar cart count
+### Checkout and Orders
+- Shipping address form with validation
+- Server-side price and stock validation
+- Razorpay Test Mode payment integration
+- Server-side payment signature verification
+- Persistent order history
+- Order confirmation and detailed order pages
+- Cart clearing after successful payment verification
+
+
 
 | Layer    | Stack                                                        |
 | -------- | ------------------------------------------------------------ |
@@ -133,6 +167,23 @@ Checkout uses Razorpay **Test Mode**, so no real money is charged. Use the test 
 | GET    | `/orders/:id`                     | ✔    | Order details                        |
 | PATCH  | `/orders/:id/status`              | ✔    | Advance status (development only)    |
 
+## What I Learned
+
+Building ShopKart helped me understand how individual frontend and backend components work together to form a full-stack application.
+
+- REST API development: Designing and implementing CRUD endpoints using Express.js.
+- Database modelling: Using Mongoose schemas, ObjectId references, and populated documents to represent relationships between customers, products, wishlists, carts, and orders.
+- Authentication and authorization: Implementing JWT authentication, HttpOnly cookies, protected routes, and customer-specific resources.
+- React state management: Using Context API to share cart state and keep the Navbar, product cards, and cart page synchronised.
+- Derived state: Calculating cart totals and item counts from existing data rather than storing redundant values.
+- Business-rule validation: Validating quantities, product stock, request data, and checkout totals on the backend.
+- Frontend/backend integration: Connecting React components to Express APIs and handling loading, error, and empty states.
+- Payment integration: Understanding server-created payment orders, Razorpay checkout, signature verification, and payment status handling.
+- Order management: Creating persistent order records with snapshots of purchased products and prices.
+- File uploads: Integrating Multer and Cloudinary for product image uploads.
+- Debugging and testing: Using Postman, browser developer tools, server logs, and error responses to diagnose issues.
+- Code organisation: Separating routes, controllers, models, API services, React components, context, and styles into maintainable modules.
+  
 ## Security notes
 
 - `.env` files are git-ignored. Only `backend/.env.example` (no real values) is committed.
